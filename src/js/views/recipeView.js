@@ -1,6 +1,6 @@
 import icons from 'url:../../img/icons.svg'; // Dependency for displaying icons
-import { Fraction } from 'fraction.js'; // Importing Fraction from fractional module
-import { View } from './view.js'; // Importing View class
+import Fraction from 'fraction.js'; // Importing Fraction from fractional module
+import { View } from './view'; // Importing View class
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe'); // Parent element where recipe details will be rendered
@@ -42,6 +42,7 @@ class RecipeView extends View {
       handler();
     });
   }
+
   addHandlerDeleteRecipe(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const deleteBtn = e.target.closest('.delete-btn');
@@ -102,8 +103,6 @@ class RecipeView extends View {
             </button>
           </div>
         </div>
-        
-  
 
         <a href="${
           this._data.key ? this._data.id : ''
@@ -116,7 +115,7 @@ class RecipeView extends View {
             <use href="${icons}#icon-user"></use>
           </svg>
         </div>
-        
+
         <button class="btn--round btn--bookmark">
           <svg>
             <use href="${icons}#icon-bookmark${
@@ -130,9 +129,8 @@ class RecipeView extends View {
         <h2 class="heading--2">Recipe ingredients</h2>
         <ul class="recipe__ingredient-list">
           ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
-        
+        </ul>
       </div>
-      
 
       <div class="recipe__directions">
         <h2 class="heading--2">How to cook it</h2>
@@ -143,19 +141,20 @@ class RecipeView extends View {
           }</span>. Please check out 
           directions at their website.
         </p>
-         <a
-            class="btn--small recipe__btn"
-            href=${this._data.sourceUrl}
-            target="_blank"
-          >
-            <span>Directions</span>
-            <svg class="search__icon">
-              <use href="${icons}#icon-arrow-right"></use>
-            </svg>
-          </a>
+        <a
+          class="btn--small recipe__btn"
+          href=${this._data.sourceUrl}
+          target="_blank"
+        >
+          <span>Directions</span>
+          <svg class="search__icon">
+            <use href="${icons}#icon-arrow-right"></use>
+          </svg>
+        </a>
       </div>
     `;
   }
+
   _generateMarkupIngredient(ing) {
     return `
     <li class="recipe__ingredient">
@@ -163,14 +162,14 @@ class RecipeView extends View {
         <use href="${icons}#icon-check"></use>
       </svg>
       <div class="recipe__quantity">${
-        ing.quantity ? new Fraction(ing.quantity).toString() : ''
+        ing.quantity ? new Fraction(Math.round(ing.quantity)).toString() : ''
       }</div>
       <div class="recipe__description">
         <span class="recipe__unit">${ing.unit}</span>
         ${ing.description}
       </div>
     </li>
-  `;
+    `;
   }
 }
 

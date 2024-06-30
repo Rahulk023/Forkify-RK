@@ -35,6 +35,7 @@ const getRecipeInfo = function (response) {
 export const loadRecipe = async function (id) {
   try {
     let response = await AJAX(`${API_URL}/${id}?key=${KEY}`);
+
     state.recipe = getRecipeInfo(response);
 
     // Check if current recipe is bookmarked
