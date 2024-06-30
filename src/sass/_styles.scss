@@ -1,0 +1,96 @@
+.upload__label {
+  flex-grow: 2;
+}
+.upload__ingredient {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  gap: 1.2rem;
+  transition: all 0.2s;
+}
+
+.upload__column--ingredients {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.upload__column--ingredients-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+.upload__inputs {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 3.5fr;
+  gap: 0.3rem;
+}
+
+.upload__inputs input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.upload__inputs input:nth-child(3) {
+  flex-grow: 2;
+}
+
+.upload__ingredient-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.ingredient__btn {
+  font-size: 2rem;
+  font-weight: 600;
+  width: 3rem;
+  height: 3rem;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom right, #2b2a29, #5f5d5d);
+  border: none;
+  border-radius: 10rem;
+  transition: all 0.2s;
+}
+
+.ingredient__btn:hover {
+  transform: scale(1.05);
+}
+element.style {
+  padding-left: 3px;
+  padding-right: 6px;
+}
+
+.delete__btn {
+  font-size: 2rem;
+  font-weight: 600;
+  width: 3rem;
+  height: 3rem;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom right, #fbdb89, #f48982);
+  border: none;
+  border-radius: 10rem;
+  transition: all 0.2s;
+}
+.delete__btn:hover {
+  transform: scale(1.05);
+}
+//delete
+
+.recipe__user-generated__delete-btn {
+  background-color: #5f5d5d; /* Red background color */
+  color: white; /* White text color */
+  padding: 5px 10px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Indicate clickable behavior */
+  text-decoration: none; /* Remove underline from text */
+}
